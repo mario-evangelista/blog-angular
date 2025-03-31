@@ -1,0 +1,59 @@
+/* src/app/components/post-list/post-list.component.scss */
+
+// Importar variáveis globais se precisar (opcional se já estiverem no :root)
+// @import '../../../styles/variables'; // Exemplo se você criar um arquivo de variáveis
+
+.post-list-title {
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--spacing-unit);
+}
+
+.posts-container {
+  list-style: none; // Remove bullets da lista
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  padding: calc(var(--spacing-unit) * 1.5) 0;
+  border-bottom: 1px solid var(--border-color); // Linha separadora entre posts
+
+  &:last-child {
+    border-bottom: none; // Remove a borda do último item
+  }
+
+  .post-title {
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    font-size: 1.5rem; // Tamanho adequado para títulos de lista
+
+    a {
+      text-decoration: none; // Garante que não tem sublinhado por padrão
+      color: var(--text-color); // Cor normal para o título
+
+      &:hover {
+        color: var(--primary-color); // Muda para a cor primária no hover
+        text-decoration: none; // Mantém sem sublinhado no hover para o título
+      }
+    }
+  }
+
+  .post-excerpt {
+    color: var(--text-color-light);
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    line-height: 1.5;
+  }
+
+  .post-meta {
+    font-size: 0.85rem;
+    color: var(--text-color-light);
+  }
+}
+
+.loading-message,
+.no-posts-message {
+  text-align: center;
+  color: var(--text-color-light);
+  padding: calc(var(--spacing-unit) * 2);
+}

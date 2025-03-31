@@ -1,0 +1,78 @@
+/* src/app/components/post-detail/post-detail.component.scss */
+
+.post-detail-container {
+  .post-title {
+    font-size: 2.2rem; // Título maior na página do post
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    line-height: 1.2;
+  }
+
+  .post-meta {
+    display: block; // Faz o small ocupar a linha
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+  }
+
+  .post-content {
+    margin-top: calc(var(--spacing-unit) * 2);
+    line-height: var(--base-line-height); // Usa altura de linha padrão definida globalmente
+
+    // Estilos para elementos comuns que podem vir do conteúdo (HTML ou Markdown renderizado)
+    h2, h3, h4 {
+      margin-top: calc(var(--spacing-unit) * 2);
+      margin-bottom: var(--spacing-unit);
+    }
+
+    p {
+      margin-bottom: var(--spacing-unit);
+    }
+
+    ul, ol {
+        margin-bottom: var(--spacing-unit);
+        padding-left: calc(var(--spacing-unit) * 2); // Mais indentação para listas no conteúdo
+    }
+
+    blockquote {
+      margin-left: 0;
+      margin-right: 0;
+      padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+      border-left: 4px solid var(--primary-color);
+      background-color: var(--light-gray);
+      color: var(--text-color-light);
+      font-style: italic;
+    }
+
+    pre {
+      background-color: #2d2d2d; // Fundo escuro para código
+      color: #f0f0f0; // Texto claro
+      padding: var(--spacing-unit);
+      border-radius: 4px;
+      overflow-x: auto; // Barra de rolagem horizontal se o código for largo
+      font-family: var(--font-family-mono);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    code:not(pre > code) { // Código inline
+        background-color: var(--light-gray);
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-family: var(--font-family-mono);
+        font-size: 0.9em;
+    }
+  } // fim .post-content
+
+  .back-link {
+    display: inline-block; // Para poder aplicar margem
+    margin-top: calc(var(--spacing-unit) * 2);
+    font-size: 0.9rem;
+  }
+} // fim .post-detail-container
+
+.loading-message,
+.not-found-message {
+  text-align: center;
+  color: var(--text-color-light);
+  padding: calc(var(--spacing-unit) * 2);
+}

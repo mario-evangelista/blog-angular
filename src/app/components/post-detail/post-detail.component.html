@@ -1,0 +1,20 @@
+<ng-container *ngIf="post$ | async as post; else loadingOrNotFound">
+  <article class="post-detail-container">
+    <h1 class="post-title">{{ post.title }}</h1>
+
+    <small class="post-meta" *ngIf="post.publishDate">
+      Publicado em: {{ post.publishDate | date : "dd/MM/yyyy" }}
+    </small>
+
+    <hr />
+
+    <div class="post-content" [innerHTML]="post.content"></div>
+
+    <hr />
+
+    <a routerLink="/posts" class="back-link">← Voltar para a lista de posts</a>
+  </article>
+</ng-container>
+<ng-template #loadingOrNotFound>
+  <p class="loading-message">Carregando post...</p>
+</ng-template>

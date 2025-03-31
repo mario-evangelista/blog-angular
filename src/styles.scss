@@ -1,1 +1,163 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss */
+
+/*-------------------------------------
+ * Variáveis Globais CSS (Custom Properties)
+ * Definidas no :root para estarem disponíveis em toda a aplicação.
+ * Facilita a manutenção e a criação de temas.
+ *-------------------------------------*/
+:root {
+  /* Famílias de Fontes */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; // Fontes padrão do sistema (boa performance)
+  --font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif; // Fonte serifada (opcional)
+  --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; // Fonte monoespaçada (para código)
+
+  /* Cores Primárias e de Texto */
+  --primary-color: #007bff;         // Cor principal para links, botões e destaques.
+  --primary-color-darker: #0056b3;  // Cor primária escurecida, usada no hover de links (CORRIGIDO: não usar SASS darken() com var()).
+  --text-color: #333;             // Cor principal do texto (cinza escuro, melhor que preto puro para leitura).
+  --text-color-light: #666;        // Cor de texto secundária (para metadados, placeholders).
+
+  /* Cores de Fundo e Bordas */
+  --background-color: #ffffff;    // Cor de fundo principal (branco).
+  --light-gray: #f8f9fa;          // Cinza muito claro (para fundos de header/footer, blockquotes).
+  --border-color: #dee2e6;          // Cor padrão para bordas (ex: hr, separadores).
+
+  /* Tipografia e Espaçamento */
+  --base-font-size: 16px;          // Tamanho de fonte base (afeta unidades 'rem').
+  --base-line-height: 1.6;         // Altura de linha base (multiplicador do font-size) para boa legibilidade.
+  --spacing-unit: 1rem;            // Unidade base para margens e paddings (geralmente igual ao --base-font-size).
+}
+
+/*-------------------------------------
+ * Reset Básico e Configurações Globais
+ * Normaliza alguns estilos padrão dos navegadores.
+ *-------------------------------------*/
+*,
+*::before,
+*::after {
+  /* Muda o modelo de caixa: padding e border não aumentam mais a largura/altura total do elemento. */
+  box-sizing: border-box;
+}
+
+html {
+  /* Define o tamanho de fonte raiz, usado como base para a unidade 'rem'. */
+  font-size: var(--base-font-size);
+  /* Melhora a rolagem em algumas situações */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0; /* Remove a margem padrão que alguns navegadores aplicam ao body. */
+  font-family: var(--font-family-sans); /* Aplica a família de fontes padrão. */
+  color: var(--text-color); /* Define a cor de texto padrão. */
+  background-color: var(--background-color); /* Define a cor de fundo padrão. */
+  line-height: var(--base-line-height); /* Define a altura de linha padrão. */
+  /* Melhora a renderização (suavização) das fontes em navegadores baseados em WebKit (Chrome, Safari) e Firefox. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*-------------------------------------
+ * Estilos Base para Elementos HTML Comuns
+ * Define uma aparência consistente para tags padrão.
+ *-------------------------------------*/
+
+/* Cabeçalhos (h1 a h6) */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: calc(var(--spacing-unit) * 1.5); /* Espaço acima dos cabeçalhos. */
+  margin-bottom: var(--spacing-unit); /* Espaço abaixo dos cabeçalhos. */
+  line-height: 1.3; /* Altura de linha um pouco menor para títulos. */
+  font-weight: 600; /* Peso da fonte (semi-bold). */
+  color: var(--text-color); /* Garante a cor padrão */
+}
+
+/* Tamanhos de fonte para cabeçalhos */
+h1 { font-size: 2.5rem; } /* ~40px */
+h2 { font-size: 2rem; }   /* ~32px */
+h3 { font-size: 1.75rem; }/* ~28px */
+h4 { font-size: 1.5rem; } /* ~24px */
+
+/* Parágrafos */
+p {
+  margin-top: 0; /* Remove margem superior padrão. */
+  margin-bottom: var(--spacing-unit); /* Adiciona espaço abaixo. */
+}
+
+/* Links */
+a {
+  color: var(--primary-color); /* Cor primária para links. */
+  text-decoration: none; /* Remove o sublinhado padrão. */
+  /* Adiciona uma transição suave para mudanças de cor e decoração no hover. */
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--primary-color-darker); /* Usa a variável de cor escura no hover (CORRIGIDO). */
+    text-decoration: underline; /* Adiciona sublinhado no hover para indicar clicabilidade. */
+  }
+}
+
+/* Listas (não ordenadas e ordenadas) */
+ul, ol {
+  padding-left: calc(var(--spacing-unit) * 1.5); /* Adiciona indentação à esquerda. */
+  margin-bottom: var(--spacing-unit); /* Adiciona espaço abaixo. */
+}
+
+/* Classes utilitárias (opcional) */
+.text-muted {
+  color: var(--text-color-light); /* Classe para textos com cor mais clara. */
+}
+
+/* Linha Horizontal */
+hr {
+  border: 0; /* Remove a borda padrão feia. */
+  height: 1px; /* Define uma altura fina. */
+  background-color: var(--border-color); /* Usa a cor de borda definida. */
+  margin: calc(var(--spacing-unit) * 2) 0; /* Adiciona bom espaçamento vertical. */
+}
+
+/* Imagens */
+img {
+  max-width: 100%; /* Garante que a imagem nunca ultrapasse a largura do seu contêiner. */
+  height: auto; /* Mantém a proporção da imagem ao redimensionar a largura. */
+  display: block; /* Evita espaços extras que podem aparecer abaixo de imagens inline. */
+}
+
+/*-------------------------------------
+ * Estilos para Conteúdo Específico (Blog)
+ * Estilos adicionais úteis para formatar o conteúdo de posts.
+ *-------------------------------------*/
+
+/* Blocos de Citação */
+blockquote {
+  margin-left: 0; /* Remove indentação padrão */
+  margin-right: 0;
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5); /* Espaçamento interno */
+  border-left: 4px solid var(--primary-color); /* Borda lateral colorida para destaque */
+  background-color: var(--light-gray); /* Fundo sutilmente diferente */
+  color: var(--text-color-light); /* Cor de texto mais clara */
+  font-style: italic; /* Estilo itálico */
+  margin-bottom: var(--spacing-unit); /* Espaço abaixo */
+}
+
+/* Blocos de Código Pré-formatados */
+pre {
+  background-color: #2d2d2d; /* Fundo escuro (tema comum para código) */
+  color: #f0f0f0; /* Texto claro */
+  padding: var(--spacing-unit); /* Espaçamento interno */
+  border-radius: 4px; /* Cantos arredondados */
+  overflow-x: auto; /* Adiciona barra de rolagem horizontal se o código for muito largo */
+  font-family: var(--font-family-mono); /* Fonte monoespaçada */
+  font-size: 0.9rem; /* Tamanho ligeiramente menor */
+  line-height: 1.4; /* Altura de linha adequada para código */
+  margin-bottom: var(--spacing-unit); /* Espaço abaixo */
+}
+
+/* Código Inline (dentro de parágrafos, etc.) */
+code:not(pre > code) { /* Seleciona 'code' que NÃO está diretamente dentro de 'pre' */
+    background-color: var(--light-gray); /* Fundo claro sutil */
+    padding: 0.2em 0.4em; /* Pequeno espaçamento interno */
+    border-radius: 3px; /* Cantos arredondados */
+    font-family: var(--font-family-mono); /* Fonte monoespaçada */
+    font-size: 0.9em; /* Tamanho relativo ao texto ao redor */
+    color: #c7254e; /* Cor de destaque para código inline (opcional, inspirado no Bootstrap) */
+}
