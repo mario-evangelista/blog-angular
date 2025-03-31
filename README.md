@@ -1,4 +1,4 @@
-# Blog Simples com Angular 📝
+# Blog Simples com Angular 19+ 📝
 
 > Um projeto de exemplo de um blog básico construído com Angular (v19+), utilizando funcionalidades modernas como Standalone Components, Roteamento e Serviços.
 
