@@ -1,8 +1,3 @@
-Okay, aqui está um modelo de `README.md` que você pode usar para o seu repositório no GitHub. Ele descreve o projeto, como configurá-lo e executá-lo, e sugere próximos passos.
-
-Adapte o nome do projeto, URL do repositório e informações do autor conforme necessário.
-
-````markdown
 # Blog Simples com Angular 📝
 
 > Um projeto de exemplo de um blog básico construído com Angular (v19+), utilizando funcionalidades modernas como Standalone Components, Roteamento e Serviços.
