@@ -140,6 +140,6 @@ SOFTWARE.
 
 ## ✍️ Autor
 
-  * **[Seu Nome]**
-  * GitHub: [@SEU\_USUARIO](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/SEU_USUARIO)
-  * LinkedIn: [Seu Perfil no LinkedIn (opcional)]()
+  * **[Mário Evangelista]**
+  * GitHub: [mario-evangelista](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/mario-evangelista)
+  * LinkedIn: [Mário Evanmgelista](https://www.linkedin.com/in/marioevangelista)]
