@@ -142,4 +142,4 @@ SOFTWARE.
 
   * **[Mário Evangelista]**
   * GitHub: [mario-evangelista](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/mario-evangelista)
-  * LinkedIn: [Mário Evanmgelista](https://www.linkedin.com/in/marioevangelista)]
+  * LinkedIn: [Mário Evanmgelista](https://www.linkedin.com/in/marioevangelista)
